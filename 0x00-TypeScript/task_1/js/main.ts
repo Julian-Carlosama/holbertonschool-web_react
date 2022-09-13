@@ -48,3 +48,23 @@ console.log(printTeacher("Juli", "Carlosam"));
 interface printTeacherFunction {
   (firstName: string, lastName: string): string
 }
+
+
+// Class StudentClass
+class StudentClass {
+  firstName : string;
+  lastName : string;
+
+  constructor(firstName : string, lastName : string) {
+    this.firstName;
+    this.lastName;
+  }
+
+  workOnHomework(): string {
+    return "Currently working";
+  }
+
+  displayName(): string {
+    return `${this.firstName}`;
+  }
+}
