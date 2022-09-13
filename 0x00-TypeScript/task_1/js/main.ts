@@ -19,6 +19,7 @@ const teacher3: Teacher = {
 
 console.log(teacher3);
 
+
 // Interface Directors...
 interface Directors extends Teacher {
   numberOfReports : number
@@ -33,3 +34,17 @@ const director1: Directors = {
   numberOfReports: 17,
 };
 console.log(director1);
+
+
+// class printTeacher
+function printTeacher(firstName: string, lastName: String): string {
+  return `${firstName[0]}, ${lastName}`
+}
+
+// test printTeacher
+console.log(printTeacher("Juli", "Carlosam"));
+
+// printTeacherFunction interface
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string
+}
