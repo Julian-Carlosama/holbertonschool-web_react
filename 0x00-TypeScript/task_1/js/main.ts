@@ -16,7 +16,6 @@ const teacher3: Teacher = {
   location: 'London',
   contract: false,
 };
-
 console.log(teacher3);
 
 
@@ -36,13 +35,13 @@ const director1: Directors = {
 console.log(director1);
 
 
-// class printTeacher
+// Function printTeacher
 function printTeacher(firstName: string, lastName: String): string {
-  return `${firstName[0]}, ${lastName}`
-}
-
+  return `${firstName[0]}, ${lastName}`;
+};
 // test printTeacher
 console.log(printTeacher("Juli", "Carlosam"));
+
 
 // printTeacherFunction interface
 interface printTeacherFunction {
@@ -51,13 +50,14 @@ interface printTeacherFunction {
 
 
 // Class StudentClass
-class StudentClass {
+//export const StudentClas: constructorStudent =
+class StudentClass implements stdClassInterf {
   firstName : string;
   lastName : string;
 
-  constructor(firstName : string, lastName : string) {
-    this.firstName;
-    this.lastName;
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
   }
 
   workOnHomework(): string {
@@ -65,6 +65,23 @@ class StudentClass {
   }
 
   displayName(): string {
-    return `${this.firstName}`;
+    return this.firstName;
   }
 }
+
+// Student constructor interface
+interface constructorStudent {
+  new (firstName: string, lastName: string): stdClassInterf;
+}
+
+// Interface student class
+interface stdClassInterf {
+  firstName: string;
+  lastName: string;
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+const stdentCls : StudentClass = new StudentClass("Juli", "Carlosam");
+/*console.log(stdentCls.displayName());
+console.log(stdentCls.workOnHomework());*/
