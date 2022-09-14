@@ -65,7 +65,7 @@ class StudentClass implements stdClassInterf {
   }
 
   displayName(): string {
-    return this.firstName;
+    return `${this.firstName}`;
   }
 }
 
