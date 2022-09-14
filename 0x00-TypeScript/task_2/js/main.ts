@@ -49,3 +49,33 @@ function createEmployee(salary: number | string): Director | Teacher  {
 console.log(createEmployee(200));
 console.log(createEmployee(1200));
 console.log(createEmployee('$500'));
+
+// isDirector function
+function isDirector(employee: TeacherInterface | DirectorInterface): employee is Director {
+  return (employee as Director).workDirectorTasks !== undefined;
+
+}
+
+// executeWork function
+function executeWork(employee: DirectorInterface | TeacherInterface): string {
+  return isDirector(employee) ? employee.workDirectorTasks() : employee.workTeacherTasks();
+}
+// Testing executeWork
+console.log(executeWork(createEmployee(200)));
+console.log(executeWork(createEmployee(1000)));
+
+
+// String literal type
+type Subjects = "Math" | "History";
+
+function teachClass(todayClass:Subjects): string {
+  if (todayClass === "Math") {
+    return "Teaching Math";
+  } else if (todayClass === "History") {
+    return "Teaching History";
+  }
+}
+
+// Testing Subjects
+console.log(teachClass('Math'));
+console.log(teachClass('History'));
