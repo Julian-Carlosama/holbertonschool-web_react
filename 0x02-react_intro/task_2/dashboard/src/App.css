@@ -29,8 +29,18 @@ body {
   height: 250px;
   text-align: left;
   padding: 40px;
-  /*border-bottom: 3px solid #EC4848;*/
+  border-bottom: 3px solid #EC4848;
   font-size: calc(10px + 2vmin);
+}
+
+.App-body label {
+  /*margin: 0 2rem 0 2rem;*/
+  margin: 0px 5px 0 10px
+}
+
+.App-body button {
+  margin-left: 1%;
+  margin-top: 1%;
 }
 
 .App-footer {
