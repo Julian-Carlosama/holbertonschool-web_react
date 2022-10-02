@@ -4,6 +4,12 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
+  devServer: {
+    historyApiFallback: true,
+    contentBase: path.resolve(__dirname, './dist'),
+    compress: true,
+    port: 8000,
+  },
   entry: './src/index.js',
   output: {
   path: path.resolve(__dirname, '..', 'dist'),
@@ -20,10 +26,22 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
+      {
+        test: /\.(Scss|css)$/,
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          'file-loader',
+          { loader: 'image-webpack-loader', options: { disable: true } }
+        ]
+      }
     ],
   },
+  devtool: 'inline-source-map'
 }
