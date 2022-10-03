@@ -4,12 +4,6 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  devServer: {
-    historyApiFallback: true,
-    contentBase: path.resolve(__dirname, './dist'),
-    compress: true,
-    port: 8000,
-  },
   entry: './src/index.js',
   output: {
   path: path.resolve(__dirname, '..', 'dist'),
@@ -17,18 +11,25 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Implementing Webpack',
       template: './dist/index.html',
       filename: 'index.html',
     }),
     new CleanWebpackPlugin(),
   ],
+  stats: {
+    children: true,
+  },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
+        use: {
+          loader: 'babel-loader',
+          options: {
+              presets: ['@babel/preset-env', '@babel/preset-react']
+          }
+      }
       },
       {
         test: /\.(Scss|css)$/,
