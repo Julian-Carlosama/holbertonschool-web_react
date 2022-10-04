@@ -1,9 +1,9 @@
-import React from 'react';
 import './App.css';
-import Header from '../Header/Header';
-import Footer from '../Footerr/Footer';
-import Login from '../Login/Login';
+import Login from '../Login/Login'
+import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
 import Notifications from '../Notifications/Notifications';
+import React from 'react';
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Notifications />
       <div className="App">
         <Header />
-        <div className="App-Body">
+        <div className="App-body">
           <Login />
         </div>
         <Footer />

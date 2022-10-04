@@ -1,42 +1,54 @@
-const path = require("path");
-const HTMLWebpackPlugin = require("html_webpack-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: {
-      index: path.resolve(__dirname,'../src/index.js'),
-    },
-    mode: 'development',
-    output: {
-        path: path.resolve(__dirname, "../dist"),
-        filename:  'bundle.js'
-    },
-    plugins: [
-      new HTMLWebpackPlugin({
-        title: 'Dashboard App',
-        filename: 'index.html',
-        template: './dist/index.html'
-      })
+  mode: 'development',
+  entry: {
+    index: path.resolve(__dirname,'../src/index.js'),
+  },
+  output: {
+  path: path.resolve(__dirname, '..', 'dist'),
+  filename: '[name].bundle.js'
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, '../src/index.html'),
+      favicon:'../src/assets/favicon.ico',
+      filename: 'index.html',
+    }),
+    new CleanWebpackPlugin(),
+  ],
+  stats: {
+    children: true,
+  },
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+              presets: ['@babel/preset-env', '@babel/preset-react']
+          }
+      }
+      },
+      {
+        test: /\.(Scss|css)$/,
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          'file-loader',
+          { 
+            loader: 'image-webpack-loader',
+            options: { disable: true }
+          }, 
+        ]
+      }
     ],
-    module: {
-      rules: [
-        {
-          test: /\.jsx?$/,
-          exclude: /node_modules/,
-          use: 'babel-loader'
-        },
-        {
-          test: /\.css$/,
-          use: ['style-loader', 'css-loader']
-        },
-        {
-          test: /\.(gif|png|jpe?g|svg)$/i,
-          use: [
-            'file-loader',
-            { loader: 'image-webpack-loader', options: { disable: true}}
-          ]
-        }
-        
-      ]
-    },
-    devtool: 'inline-source-map'
-};
+  },
+  devtool: 'inline-source-map'
+}

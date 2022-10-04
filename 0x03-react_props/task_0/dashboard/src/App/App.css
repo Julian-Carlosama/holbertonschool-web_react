@@ -1,10 +1,13 @@
+.App-logo {
+  height: 30vmin;
+}
+  
 .App-body {
-  padding: 30px 70px;
-  font: 1.2rem 'Fira Sans', sans-serif;
   height: 20rem;
-  border-bottom: 2px solid #EC4848;   
+  text-align: left;
+  padding: 30px;
+  border-bottom: 2px solid #EC4848;
+  font-size: calc(5px + 2vmin);
+  font-family: 'Fira Sans', sans-serif;
 }
 
-.App-logo {
-  height: 300px;
-}

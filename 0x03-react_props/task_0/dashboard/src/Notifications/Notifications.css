@@ -1,0 +1,25 @@
+.Notifications {
+    padding: 1%;
+    border: 2px dashed #EC4848;
+    margin: 1px;
+  }
+  
+  li[data-priority="default"] {
+    color: blue;
+  }
+  
+  li[data-priority="urgent"] {
+    color: red;
+  }
+  
+  .Notifications button {
+    float: right;
+  }
+  .close-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border: none;
+    background-color: transparent;
+    visibility:"hidden";
+  }

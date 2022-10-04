@@ -1,21 +1,18 @@
-import logo from './HolbertonLogo.jpg';
-import './App.css';
+import React from 'react';
+import './Login.css';
 
-function App() {
+function Login() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>School dashboard</h1>
-      </header>
-      <body className="App-body">
-        <p>Login to access the full dashboard</p>
-      </body>
-      <footer className="App-footer">
-        <p>Copyright 2020 - holberton School</p>
-      </footer>
+    <div>
+      <p>Login to access the full dashboard</p>
+      <label>Email:</label>
+      <input type="email" id="email" size="30" required></input>
+      <label>Password:</label>
+      <input type="password" id="pwd" name="pwd" pattern=".{6,}" required></input>
+      <button>OK</button>
     </div>
-  );
+  )
+
 }
 
-export default App;
+export default Login
