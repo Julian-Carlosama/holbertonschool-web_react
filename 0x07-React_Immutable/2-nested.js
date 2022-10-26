@@ -6,10 +6,3 @@ export default function accessImmutableObject(object, array) {
 
   return pathObj;
 }
-
-console.log(accessImmutableObject({
-  name: {
-    first: "Guillaume",
-    last: "Salva"
-  }
-}, ['name', 'first']))
