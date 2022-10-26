@@ -1,4 +1,6 @@
-import { Seq } from "immutable";
+import immutable from 'immutable';
+
+const { Seq } = immutable;
 
 const makeUppercase = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
