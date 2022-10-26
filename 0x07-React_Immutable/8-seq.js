@@ -2,8 +2,8 @@ import { Seq } from "immutable";
 
 const makeUppercase = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
-export default function printBestStudents(grades) {
-  const bestStudents = Seq(grades)
+export default function printBestStudents(object) {
+  const bestStudents = Seq(object)
     .filter((student) => student.score > 70)
     .map((student) => {
       const { firstName, lastName } = student;
