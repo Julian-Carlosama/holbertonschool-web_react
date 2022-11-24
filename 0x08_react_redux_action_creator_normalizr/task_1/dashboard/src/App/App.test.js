@@ -87,13 +87,13 @@ describe("<App />", () => {
     const wrapper = shallow(<App />);
     expect(wrapper.state().displayDrawer).toEqual(false);
 
-    const instance = wrapper.instance();
+    // const instance = wrapper.instance();
 
-    instance.handleDisplayDrawer();
+    wrapper.instance().handleDisplayDrawer();
 
     expect(wrapper.state().displayDrawer).toEqual(true);
 
-    instance.handleHideDrawer();
+    wrapper.instance().handleHideDrawer();
 
     expect(wrapper.state().displayDrawer).toEqual(false);
   });
